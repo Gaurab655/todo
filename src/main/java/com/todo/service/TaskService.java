@@ -1,7 +1,8 @@
 package com.todo.service;
 
 import com.todo.dto.TaskDto;
+import com.todo.response.ApiResponse;
 
 public interface TaskService {
-    public String addTask(TaskDto taskDto);
+     ApiResponse addTask(TaskDto taskDto);
 }

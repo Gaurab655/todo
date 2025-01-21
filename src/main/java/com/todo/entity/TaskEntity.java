@@ -1,5 +1,6 @@
 package com.todo.entity;
 
+import com.todo.enums.TaskPriorityEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,12 @@ public class TaskEntity {
     private int id;
     private String title;
     private String description;
-    private LocalDateTime createdDate;
+
+    @Enumerated(EnumType.STRING)
+    private TaskPriorityEnum priority;
+    private LocalDateTime createdDate = LocalDateTime.now();
+
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity categoryEntity;
 }
