@@ -26,9 +26,11 @@ public class TaskServiceImpl implements TaskService {
         CategoryEntity categoryEntity = categoryRepo.findById(taskDto.getCategory())
                 .orElseThrow(() -> new TodoException("Category Id not found", HttpStatus.UNPROCESSABLE_ENTITY));
 
-            taskEntity.setCategory(categoryEntity);
-            taskRepo.save(taskEntity);
+        taskEntity.setCategory(categoryEntity);
+        taskRepo.save(taskEntity);
 
         return new ApiResponse("success");
     }
+
+
 }
