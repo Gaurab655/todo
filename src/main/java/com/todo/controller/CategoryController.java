@@ -1,10 +1,10 @@
 package com.todo.controller;
 
 import com.todo.dto.CategoryDto;
-import com.todo.response.ApiResponse;
+import com.todo.model.ApiResponse;
 import com.todo.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +18,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @PostMapping("/add-category")
-    public ResponseEntity<ApiResponse> addCategory(@RequestBody CategoryDto categoryDto) {
-        return new ResponseEntity<>(categoryService.addCategory(categoryDto), HttpStatus.OK);
+    public ResponseEntity<ApiResponse> addCategory(@Valid @RequestBody CategoryDto categoryDto) {
+        return ResponseEntity.ok(categoryService.addCategory(categoryDto));
     }
 }

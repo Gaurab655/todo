@@ -21,5 +21,5 @@ public class TaskDto {
     private TaskPriorityEnum priority;
 
     @NotNull(message = "Insert Category")
-    private int category;
+    private Integer category;
 }

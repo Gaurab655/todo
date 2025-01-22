@@ -26,7 +26,7 @@ public class TaskEntity {
     private TaskPriorityEnum priority;
     private LocalDateTime createdDate = LocalDateTime.now();
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "category_id")
-    private CategoryEntity categoryEntity;
+    private CategoryEntity category;
 }
