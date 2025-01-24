@@ -2,11 +2,11 @@ package com.todo.model;
 
 import lombok.*;
 
+@Data
+@EqualsAndHashCode(callSuper = false)
 @Builder
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApiResponse {
+public class ApiResponse  {
     String message;
 }

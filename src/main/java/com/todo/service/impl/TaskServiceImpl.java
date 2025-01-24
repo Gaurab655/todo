@@ -1,6 +1,6 @@
 package com.todo.service.impl;
 
-import com.todo.dto.TaskDto;
+import com.todo.dto.requestDto.TaskRequestDto;
 import com.todo.entity.CategoryEntity;
 import com.todo.entity.TaskEntity;
 import com.todo.exception.TodoException;
@@ -21,9 +21,9 @@ public class TaskServiceImpl implements TaskService {
     private final CategoryRepo categoryRepo;
 
     @Override
-    public ApiResponse addTask(TaskDto taskDto) throws TodoException {
-        TaskEntity taskEntity = this.modelMapper.map(taskDto, TaskEntity.class);
-        CategoryEntity categoryEntity = categoryRepo.findById(taskDto.getCategory())
+    public ApiResponse addTask(TaskRequestDto taskRequestDto) throws TodoException {
+        TaskEntity taskEntity = this.modelMapper.map(taskRequestDto, TaskEntity.class);
+        CategoryEntity categoryEntity = categoryRepo.findById(taskRequestDto.getCategory())
                 .orElseThrow(() -> new TodoException("Category Id not found", HttpStatus.UNPROCESSABLE_ENTITY));
 
         taskEntity.setCategory(categoryEntity);

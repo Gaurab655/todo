@@ -1,4 +1,4 @@
-package com.todo.dto;
+package com.todo.dto.requestDto;
 
 import com.todo.enums.TaskPriorityEnum;
 import jakarta.persistence.EnumType;
@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TaskDto {
+public class TaskRequestDto {
     @NotNull(message = "Enter title")
     private String title;
 
