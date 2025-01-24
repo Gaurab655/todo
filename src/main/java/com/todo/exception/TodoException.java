@@ -15,4 +15,10 @@ public class TodoException extends Exception{
         this.message=message;
         this.status=status;
     }
+
+    public TodoException(String message){
+        super(message);
+        this.status=HttpStatus.UNPROCESSABLE_ENTITY;
+
+    }
 }
