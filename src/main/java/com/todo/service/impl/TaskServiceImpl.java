@@ -45,7 +45,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public ApiResponse updateTaskById(int id, TaskRequestDto taskRequestDto) throws TodoException {
         TaskEntity taskEntity = taskRepo.findById(id)
-                .orElseThrow(() -> new TodoException("No task found with this id", HttpStatus.UNPROCESSABLE_ENTITY));
+                .orElseThrow(() -> new TodoException("No task found with this id"));
 
     }
 
