@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class TaskResponseDto {
     private String title;
     private String description;
-    private LocalDateTime createdDate = LocalDateTime.now();
+    private LocalDateTime createdDate;
     private TaskPriorityEnum priority;
     private CategoryEntity category;
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -24,7 +25,8 @@ public class TaskEntity {
 
     @Enumerated(EnumType.STRING)
     private TaskPriorityEnum priority;
-    private LocalDateTime createdDate = LocalDateTime.now();
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

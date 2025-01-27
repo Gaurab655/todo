@@ -30,14 +30,13 @@ public class CategoryServiceImpl implements CategoryService {
         CategoryEntity category = categoryRepo.findById(id)
                 .orElseThrow(() -> new TodoException("No category found for this id"));
         CategoryResponseDto categoryResponseDto = this.modelMapper.map(category, CategoryResponseDto.class);
-        return ServiceResponseBuilder.buildSuccessBuilder("",categoryResponseDto);
+        return ServiceResponseBuilder.buildSuccessBuilder("", categoryResponseDto);
 
     }
 
     @Override
     public ApiResponse updateById(int id, CategoryRequestDto categoryRequestDto) throws TodoException {
-        CategoryEntity category = categoryRepo.findById(id)
-                .orElseThrow(() -> new TodoException("No category found for this id"));
+        CategoryEntity category = categoryRepo.findById(id).orElseThrow(() -> new TodoException("No category found for this id"));
         modelMapper.map(categoryRequestDto, category);
         categoryRepo.save(category);
         return ServiceResponseBuilder.buildSuccessBuilder("Updated");

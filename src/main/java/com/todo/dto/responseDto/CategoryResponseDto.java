@@ -10,5 +10,5 @@ import java.time.LocalDateTime;
 public class CategoryResponseDto {
     private String name;
     private String description;
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 }

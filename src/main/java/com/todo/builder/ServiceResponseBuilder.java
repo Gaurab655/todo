@@ -2,9 +2,7 @@ package com.todo.builder;
 
 import com.todo.exception.TodoException;
 import com.todo.model.ApiResponse;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 public class ServiceResponseBuilder {
 
     public static ApiResponse buildFailedBuilder(TodoException todoException) {

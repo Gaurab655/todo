@@ -52,7 +52,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public ApiResponse deleteById(int id) throws TodoException {
-        TaskEntity taskEntity = taskRepo.findById(id).orElseThrow(()->new TodoException(" Task not found for that id"));
+        TaskEntity taskEntity = taskRepo.findById(id).orElseThrow(() -> new TodoException(" Task not found for that id"));
         taskRepo.delete(taskEntity);
         return ServiceResponseBuilder.buildSuccessBuilder("Deleted");
     }

@@ -1,14 +1,16 @@
 package com.todo.exception;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
 public class TodoException extends Exception {
-    private String message;
-    private HttpStatus status;
+    private final String message;
+    private final HttpStatus status;
 
     public TodoException(String message, HttpStatus status) {
         super(message);
@@ -19,6 +21,6 @@ public class TodoException extends Exception {
     public TodoException(String message) {
         super(message);
         this.status = HttpStatus.UNPROCESSABLE_ENTITY;
-
+        this.message = "";
     }
 }
