@@ -43,8 +43,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ApiResponse> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
         ApiResponse apiResponse = new ApiResponse();
-        if (e.getCause() instanceof InvalidFormatException) {
-            InvalidFormatException ex = (InvalidFormatException) e.getCause();
+        if (e.getCause() instanceof InvalidFormatException ex) {
             Class<?> targetType = ex.getTargetType();
 
             if (targetType.isEnum()) {

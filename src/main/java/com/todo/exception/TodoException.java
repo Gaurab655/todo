@@ -6,19 +6,19 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class TodoException extends Exception{
+public class TodoException extends Exception {
     private String message;
     private HttpStatus status;
 
-    public TodoException(String message,HttpStatus status){
+    public TodoException(String message, HttpStatus status) {
         super(message);
-        this.message=message;
-        this.status=status;
+        this.message = message;
+        this.status = status;
     }
 
-    public TodoException(String message){
+    public TodoException(String message) {
         super(message);
-        this.status=HttpStatus.UNPROCESSABLE_ENTITY;
+        this.status = HttpStatus.UNPROCESSABLE_ENTITY;
 
     }
 }

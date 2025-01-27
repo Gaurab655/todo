@@ -3,7 +3,6 @@ package com.todo.controller;
 import com.todo.dto.requestDto.CategoryRequestDto;
 import com.todo.exception.TodoException;
 import com.todo.model.ApiResponse;
-import com.todo.model.Response;
 import com.todo.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,7 @@ public class CategoryController {
     }
 
     @GetMapping("/get-category/{id}")
-    public ResponseEntity<Response> getCategoryById(@PathVariable int id) throws TodoException {
+    public ResponseEntity<ApiResponse> getCategoryById(@PathVariable int id) throws TodoException {
         return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
 
